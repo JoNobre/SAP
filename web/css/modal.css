@@ -1,0 +1,225 @@
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    box-sizing: border-box;
+
+}
+
+
+.modalConteudo {
+    background-color: var(--cor-fundo-frente);
+    margin: 8vh auto;
+    padding: 3.8vh;
+    width: 80vw;
+    /* Could be more or less, depending on screen size */
+    border-radius: 0.7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3vh;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.modalConteudo p {
+    font-size: 1.5rem;
+}
+
+.modalCharaHead {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.fechaModal {
+    color: #aaa;
+    font-size: 5vh;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.fechaModal:hover,
+.fechaModal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalImgContainer,
+#modalImgContainerU,
+#modalImgContainerV {
+    background-color: var(--cor-fundo);
+    height: 20vh;
+    width: 20vh;
+    border: 0.3vw solid var(--cor-fundo-frente-destaque2);
+    border-radius: 0.5vw;
+}
+
+#modalImgContainer img,
+#modalImgContainerU img,
+#modalImgContainerV img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
+
+  }
+
+.modalConteudo input:not([type="checkbox"]),
+textarea,
+.charaForm span,select {
+    border: none;
+    background-color: var(--cor-fundo);
+    border-radius: 1vw;
+    padding: 0.8vw;
+    height: fit-content;
+    width: 100%;
+}
+
+.modalConteudo input:hover,
+.modalConteudo input:focus-visible,
+.modalConteudo textarea:hover,
+.modalConteudo textarea:focus-visible,
+.modalConteudo select:hover,
+.modalConteudo select:focus-visible {
+    outline: none;
+    background-color: var(--cor-fundo-frente-destaque2);
+}
+
+.charaForm {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    flex-direction: column;
+    align-items: center;
+    gap: 4vh;
+}
+
+.charaForm button {
+    color: var(--cor-fundo-frente5);
+    font-weight: 700;
+    width: 100%;
+    background-color: var(--cor-botao-adicionar);
+}
+
+.charaForm button:hover {
+    background-color: var(--cor-botao-adicionar-claro);
+}
+
+.charaFormIdNome {
+    display: flex;
+
+    width: 100%;
+    max-height: 2em;
+    flex-wrap: nowrap;
+    height: fit-content;
+}
+
+.charaFormIdNome label {
+    margin-right: 0.6vw;
+}
+
+.charaFormNome {
+    width: 100%;
+    display: flex;
+    flex: 5;
+}
+
+.charaFormNome,
+.charaFormId {
+    align-items: center;
+}
+
+.charaFormId {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+#charaNome,
+#charaNomeU,
+#charaNomeV,
+#charaNomeVus {
+    width: 90%;
+}
+
+#charaIdV,
+#charaIdVus {
+    width: 3.5em;
+    text-align: center;
+}
+
+.charaFormDesc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.charaFormDesc textarea {
+    width: 100%;
+    resize: none;
+    height: 20vh;
+}
+
+.charaFormLink {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+}
+.charaFormLink label{
+    text-wrap: nowrap;
+    margin-right: 0.6vw;
+}
+
+#modalVisualiza .charaFormLink{
+    flex-direction: column;
+}
+
+#charaLink,
+#charaLinkU,
+#charaLinkV {
+    width: 100%;
+}
+
+.charaFormIdNome label {
+    width: min-content;
+    text-align: right;
+    text-wrap: nowrap;
+
+}
+
+#ImportaChara{
+    display: flex;
+    gap: 10px;
+    width: 100%
+}
+#ImportaChara button{
+    background-color: var(--cor-botao-visualizar);
+}

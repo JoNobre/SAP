@@ -1,0 +1,290 @@
+:root{
+    --cor-fundo: #2f2f2f;
+    --cor-verde-dessaturado: #608b55;
+    --cor-verde-dessaturado-claro: #719967;
+    --cor-fundo-frente: #424242;
+    --cor-fundo-frente-destaque: #4a5048;
+    --cor-destaque: #7ec56b;
+    --cor-destaque2: #c7e9bd;
+    --cor-texto: #f1f1f1;
+}
+
+/* css reset */
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--cor-fundo);
+    display: flex;
+}
+
+.sidebar{
+    background-color: var(--cor-verde-dessaturado);
+    height: 100vh;
+    width: fit-content;
+    padding: 2em;
+}
+.sidebar img{
+    width: 12em;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+/* remove a linha dos links */
+
+a {
+    text-decoration: none;
+}
+
+
+/* esconde as ancoras da tela */
+
+a.links {
+    display: none;
+}
+
+.content {
+    width: 500px;
+    min-height: 560px;
+    margin: 0px auto;
+    position: relative;
+}
+
+h1 {
+    font-size: 48px;
+    color: var(--cor-destaque);
+    padding: 2px 0 10px 0;
+    /* font-family: 'Comic Sans MS'; */
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+h1:after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: 10px;
+    background: -webkit-linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53% rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+    background: linear-gradient(left, rgba(147, 184, 189, 0) 0%, rgba(147, 184, 189, 0.8) 20%, rgba(147, 184, 189, 1) 53% rgba(147, 184, 189, 0.8) 79%, rgba(147, 184, 189, 0) 100%);
+}
+
+p {
+    margin-bottom: 15px;
+}
+p img{
+    height: 11em;
+    width: 11em;
+    object-fit: cover;
+}
+#img_out{
+    text-align: center;
+    display: none;
+}
+#img_link{
+    color: rgba(0, 0, 0, 0);
+}
+
+
+label {
+    color: var(--cor-destaque);
+    position: relative;
+    font-weight: bold;
+}
+
+
+/* placeholder */
+
+::-webkit-input-placeholder {
+    color: var(--cor-verde-dessaturado-claro);
+    font-style: italic;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: var(--cor-verde-dessaturado-claro);
+    font-style: italic;
+}
+
+input {
+    outline: none;
+}
+
+
+/* estilo dos input, menos o checkbox */
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
+
+  }
+
+input:not([type="checkbox"]),
+textarea{
+    width: 95%;
+    margin-top: 4px;
+    padding: 10px;
+    border: none;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-weight: bold;
+}
+input:not([type="checkbox"]):hover,
+textarea:hover,
+input:not([type="checkbox"]):focus,
+textarea:focus{
+    background-color: var(--cor-fundo-frente-destaque);
+}
+
+
+/* estilo do botão submit */
+
+input[type="submit"] {
+    width: 100%!important;
+    cursor: pointer;
+    background: var(--cor-destaque);
+    padding: 8px 5px;
+    color: var(--cor-fundo);
+    font-size: 20px;
+    border: none;
+    margin-bottom: 10px;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em;
+    transition: all 0.2s linear;
+
+}
+
+
+/* estilo no botão submit no hover */
+
+input[type="submit"]:hover {
+    background: var(--cor-destaque2);
+}
+textarea{
+      resize: none;
+}
+.link {
+
+}
+
+.link a {
+    color: var(--cor-destaque);
+    transition: all 0.2s linear;
+    text-decoration-color: var(--cor-destaque);
+}
+
+.link a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--cor-destaque2);
+    color: var(--cor-destaque2);
+}
+
+form{
+    background: var(--cor-fundo-frente);
+    -webkit-border-shadow: 5px;
+    border-radius: 1em;
+    padding: 2em;
+}
+
+#cadastro,
+#login {
+    position: absolute;
+    top: 0px;
+    width: 88%;
+    padding: 18px 6% 60px 6%;
+    margin: 0 0 35px 0;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    display: none;
+}
+
+
+/* efeito ao clicar no botão ( Ir para Login ) */
+
+#paracadastro:target~.content #cadastro,
+#paralogin:target~.content #login {
+    z-index: 2;
+    -webkit-animation-name: fadeInLeft;
+    animation-name: fadeInLeft;
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+    display: block;
+}
+
+
+/* Efeito ao clicar no botão ( Cadastre-se ) */
+
+#registro:target~.content #login,
+#paralogin:target~.content #cadastro {
+    -webkit-animation-name: fadeOutLeft;
+    animation-name: fadeOutLeft;
+}
+
+
+/* fadeInLeft */
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* fadeInLeft */
+
+@-webkit-keyframes fadeInLeft {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateX(-20px);
+    }
+}
+
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
