@@ -102,7 +102,7 @@
                         <label for="charaLink">Link: </label><input type="text" 
                                                                     id="charaLink" name="charaLink" 
                                                                     onblur="carregaImagem()">
-                        <input type="hidden" name="location" value="gerenciarchara">
+                        <input type="hidden" name="location" value="listarchara">
                     </div>
                     <div id="ImportaChara">
                         <input type="file" id="seleciona" value="Import" /><br />

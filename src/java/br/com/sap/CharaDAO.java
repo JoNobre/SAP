@@ -4,9 +4,7 @@
  */
 package br.com.sap;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
@@ -57,6 +55,18 @@ public class CharaDAO {
             e.printStackTrace();
         } finally{
             con.close();
+        }
+    }
+    public boolean charaSemCategoria(int id_usuario) throws SQLException{
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("select count(*) as qtd from chara c"
+                + " left join categoria_chara cc on c.id_chara = cc.id_chara_fk "
+                + "where id_usuario_fk = "+id_usuario+" and id_categoria_fk is null");
+        rs.next();
+        if (rs.getInt("qtd") != 0){
+            return true;
+        }else{
+            return false;
         }
     }
 }

@@ -3,19 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/src/java/LoginControllers.java</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/css/style2.css</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/listarchara.jsp</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/css/modalListarchara.css</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/gerenciarchara.jsp</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/src/java/br/com/sap/CadastroCharaServlet.java</file>
+            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/listarchara.jsp</file>
             <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/src/java/br/com/sap/CadastroCategoriaServlet.java</file>
             <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/css/modal.css</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/META-INF/context.xml</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/download.jsp</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/css/style3.css</file>
-            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/css/estilo2.css</file>
+            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/src/java/br/com/sap/UpdateCharaServlet.java</file>
+            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/gerenciarchara.jsp</file>
+            <file>file:/C:/Users/Jonathan/Documents/NetBeansProjects/SAP/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

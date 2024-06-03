@@ -36,6 +36,9 @@ public class UpdateCharaServlet extends HttpServlet{
             String descricao = request.getParameter("charaDescU");
             String img_link = request.getParameter("charaLinkU");
             String location = request.getParameter("location");
+            if ("".equals(img_link) || img_link == null){
+                img_link = "img/chara_padrao.jpg";             
+            }
             
             Connection con;
             try {

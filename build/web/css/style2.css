@@ -45,15 +45,113 @@ h3:hover + .hoverDesc{
     padding: 1.5vh;
     border-radius: 1.5vh;
     z-index: 2;
+    box-shadow: 2px 2px 10px var(--cor-sombra);
 }
 .hoverDesc::before{
     content: "";
     display: block;
     background-color: inherit;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     transform: rotate(45deg);
     position: absolute;
     z-index: -1;
     top: -10px;
+}
+.chara_container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.chara{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 4px;
+    border: 2px dotted var(--cor-texto-destaque);
+    position: relative;
+}
+.chara img{
+    width: 9.6vw;
+    height: 9.6vw;    
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+.nome_chara{
+    width: 100%;
+    text-align: center;
+    background-color: var(--cor-verde-dessaturado-claro);
+    font-weight: 600;
+    border-radius: 0px 0px 10px 10px;
+}
+.moverCategoria{
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    display: none;
+    background-color: var(--cor-fundo-frente);
+    z-index: 2;
+    top: 20%;
+    left: 120%;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    font-weight: 500;
+    box-shadow: 2px 2px 10px var(--cor-sombra);
+    flex-direction: column;
+}
+.moverCategoria::before{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--cor-fundo-frente);
+    position: absolute;
+    transform: rotate(45deg);
+    z-index: -1;
+    top: 25%;
+    left: -10%;
+}
+.moverCategoria::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    bottom: 0;
+    left: -20%;
+}
+.moverCategoria.esquerda{
+    right: 120%;
+    left: auto;
+}
+.moverCategoria.esquerda::before{
+    right: -10%;
+    left: auto;
+}
+.moverCategoria.esquerda::after{
+    right: -20%;
+    left: auto;
+}
+a,a:visited{
+    text-decoration: none;
+    color: inherit;
+}
+.moverCategoria li{
+    text-wrap: nowrap;
+    text-align: center;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--cor-fundo-frente-destaque2);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.moverCategoria li:hover{
+    background-color: var(--cor-fundo-frente-destaque3);
+}
+.moverCategoria a + a{
+    margin-top: 5px;
 }
