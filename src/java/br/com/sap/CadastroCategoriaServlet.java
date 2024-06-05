@@ -29,7 +29,7 @@ public class CadastroCategoriaServlet extends HttpServlet{
         protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
             PrintWriter writer = response.getWriter();
-            int id_usuario = Integer.valueOf(request.getParameter("idUsuario"));
+            int id_usuario = Integer.parseInt(request.getParameter("idUsuario"));
             String nome = request.getParameter("nomeCat");
             String descricao = request.getParameter("descCat");
             String location = request.getParameter("location");

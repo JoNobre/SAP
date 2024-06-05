@@ -7,12 +7,15 @@ body{
 nav a {
     text-decoration: none;
     color: var(--cor-texto);
+    height: fit-content;
+    position: relative;
 }
 nav a:hover {
     text-decoration: none;
     color: var(--cor-texto-destaque);
+    cursor: pointer;
 }
-nav a:first-child{
+#logo{
     display: flex;
     height: 100%;
     
@@ -54,6 +57,23 @@ nav ul{
     font-size: 20px;
     width: 100%;
     flex: 2;
+    height: 100%;
+}
+nav li{
+    display: flex;
+    align-items: center;
+}
+nav li a{
+    height: fit-content;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+nav li img{
+    height: 40px;
+}
+nav a span{
+    position: absolute;
+    background-color: var(--cor-botao-remover);
 }
 
 

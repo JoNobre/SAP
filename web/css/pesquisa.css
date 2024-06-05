@@ -1,0 +1,23 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(235, 228, 240);
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
+button{
+    height: fit-content;
+    padding: 0.5rem;
+    color: var(--cor-fundo-frente5);
+    background-color: var(--cor-botao-adicionar);
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5em;
+    min-width: 8em;
+}
+button:hover{
+    background-color: var(--cor-botao-adicionar-claro);
+}

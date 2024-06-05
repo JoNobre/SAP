@@ -8,8 +8,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.sap.CharaDAO"%>
 <%@page import="br.com.sap.Categoria"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" 
-        pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<%@page language="java" contentType="text/html; -UTF-8" 
+        pageEncoding="UTF-8" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -257,7 +257,7 @@
                             <input type="text" required maxlength="20" name="nomeCat" id="nomeCat">
                         </div>
                         <div class="blockInput">
-                            <label for="descCat">Descrição:</label>
+                            <label for="descCat">DescriÃ§Ã£o:</label>
                             <textarea name="descCat" id="descCat"></textarea>
                         </div>
                         <input type="hidden" name="idUsuario" value="<%=id_s%>">

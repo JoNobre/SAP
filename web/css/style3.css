@@ -321,3 +321,13 @@ a:-webkit-any-link{
 #tabela {
     display: flex;
 }
+.sp_botoes{
+    display: flex;
+    gap: 20px;
+}
+#clonar button{
+    background-color: var(--cor-botao-visualizar);
+}
+#clonar button:hover{
+    background-color: var(--cor-botao-visualizar-claro);
+}

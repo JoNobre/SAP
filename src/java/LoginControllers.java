@@ -1,5 +1,7 @@
 
 import br.com.conexao.CriarConexao;
+import br.com.sap.Notificacao;
+import br.com.sap.NotificacaoDAO;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -40,6 +42,7 @@ public class LoginControllers extends HttpServlet{
             String senha = request.getParameter("senha_login");
             String sql = "Select * from usuario where email_usuario = ? and senha_usuario = ?";
             
+            
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update(senha.getBytes());
             
@@ -75,6 +78,15 @@ public class LoginControllers extends HttpServlet{
                 session.setAttribute("email",email);
                 session.setAttribute("nome",nomeBuscado);
                 session.setAttribute("cargo",cargoBuscado);
+                
+                try{
+                    con = CriarConexao.getConexao();
+                    Notificacao n = new Notificacao(idBuscado);
+                    NotificacaoDAO dao = new NotificacaoDAO(con);
+                    session.setAttribute("notifs",dao.qtdNotifs(n));
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
                 request.getRequestDispatcher("logado.jsp").forward(request, response);
             } else{
                 System.out.println(emailBuscado + "-" + email);

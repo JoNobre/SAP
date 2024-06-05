@@ -4,7 +4,7 @@
     Author     : Jonathan
 --%>
 
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,55 +17,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <title>Criar Personagem</title>
 
-        <script>
-            function validarCadastro() {
-                var nome_cadastro = charaNome.value;
-
-                if (nome_cadastro === "") {
-                    alert('Insira o nome do personagem');
-                    charaNome.focus();
-                    return false;
-                } else if (img_link.value === "" || img_link.value === undefined) {
-                    img_link.value = "img/chara_padrao.jpg";
-
-                } else {
-                    alert('Personagem inserido com sucesso!');
-                }
-            }
-
-            function carregaImagem() {
-                if (charaLink.value !== "" && charaLink.value !== undefined) {
-                    modalImg.src = charaLink.value;
-                    modalImg.style.display = "block";
-                } else{
-                    modalImg.style.display = "none";
-                }
-            }
-
-            function carregaJson() {
-                let files = document.getElementById('seleciona').files;
-                console.log(files);
-                if (files.length <= 0) {
-                    return false;
-                }
-
-                let fr = new FileReader();
-
-                fr.onload = function (e) {
-                    console.log(e);
-                    let result = JSON.parse(e.target.result);                                        
-                    charaLink.value = result.img_link_chara;
-                    charaNome.value = result.nome_chara;
-                    document.getElementById('charaDesc').value = result.descricao_chara;
-                    carregaImagem();
-                }
-                
-                fr.readAsText(files.item(0));
-                
-                
-            };
-
-        </script>
     </head>
 
     <body>
@@ -95,8 +46,8 @@
                         </div>                 
                     </div>
                     <div class="charaFormDesc">
-                        Descrição:
-                        <textarea name="charaDesc" id="charaDesc"></textarea>
+                        DescriÃ§Ã£o:
+                        <textarea name="charaDesc" id="charaDesc"><%=request.getParameter("d")%></textarea>
                     </div>
                     <div class="charaFormLink">
                         <label for="charaLink">Link: </label><input type="text" 
@@ -110,10 +61,63 @@
                     </div>
                     <button onclick="return validarCadastro()">Adicionar novo personagem</button>
                 </form>
-                
+
             </div>
         </div>
+        <script>
+            function validarCadastro() {
+                var nome_cadastro = charaNome.value;
 
+                if (nome_cadastro === "") {
+                    alert('Insira o nome do personagem');
+                    charaNome.focus();
+                    return false;
+                } else if (img_link.value === "" || img_link.value === undefined) {
+                    img_link.value = "img/chara_padrao.jpg";
+
+                } else {
+                    alert('Personagem inserido com sucesso!');
+                }
+            }
+
+            function carregaImagem() {
+                if (charaLink.value !== "" && charaLink.value !== undefined) {
+                    modalImg.src = charaLink.value;
+                    modalImg.style.display = "block";
+                } else {
+                    modalImg.style.display = "none";
+                }
+            }
+
+            function carregaJson() {
+                let files = document.getElementById('seleciona').files;
+                console.log(files);
+                if (files.length <= 0) {
+                    return false;
+                }
+
+                let fr = new FileReader();
+
+                fr.onload = function (e) {
+                    console.log(e);
+                    let result = JSON.parse(e.target.result);
+                    charaLink.value = result.img_link_chara;
+                    charaNome.value = result.nome_chara;
+                    document.getElementById('charaDesc').value = result.descricao_chara;
+                    carregaImagem();
+                }
+
+                fr.readAsText(files.item(0));
+
+
+            }
+            window.onload = () => {
+                charaNome.value = "<%=request.getParameter("n")%>";
+                charaLink.value = "<%=request.getParameter("l")%>";
+                carregaImagem();
+            }
+
+        </script>
     </body>
 </html>
 

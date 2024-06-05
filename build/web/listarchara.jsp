@@ -8,8 +8,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="br.com.sap.CharaDAO"%>
 <%@page import="br.com.sap.Categoria"%>
-<%@page language="java" contentType="text/html; charset=ISO-8859-1" 
-        pageEncoding="ISO-8859-1" import="java.sql.*"%>
+<%@page language="java" contentType="text/html; -UTF-8" 
+        pageEncoding="UTF-8" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +21,7 @@
         <link href="css/modalListarchara.css" rel="stylesheet" type="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
-    <body onload='func()'>
+    <body>
         <%
             String email_s = (String) session.getAttribute("email");
             String nome_s = (String) session.getAttribute("nome");
@@ -47,10 +47,10 @@
             if("in".equals(acao)){
                 int ct = Integer.valueOf(request.getParameter("ct"));
                 int ch = Integer.valueOf(request.getParameter("ch"));
-                String sql = "delete from categoria_chara where id_chara_fk = ? and id_categoria_fk = ?";
+                String sql = "delete from categoria_chara where id_chara_fk = ?";
                 PreparedStatement stmt_dl = conn.prepareStatement(sql);
                 stmt_dl.setInt(1, ch);
-                stmt_dl.setInt(2, ct);
+                //stmt_dl.setInt(2, ct);
                 stmt_dl.execute();
                 sql = "insert into categoria_chara (id_chara_fk, id_categoria_fk) values (?,?)";
                 stmt_dl = conn.prepareStatement(sql);
@@ -141,9 +141,9 @@
                     img_link_chara = rs2.getString("img_link_chara");
             %>
             
-                <div class="chara" id='c_<%=id_chara%>' onclick="mostraCats(<%=id_chara%>)" onmouseleave="escondeCats(<%=id_chara%>)">
-                    <img src="<%=img_link_chara%>">
-                    <div class="nome_chara"><%=nome_chara%></div>
+                <div class="chara" id='c_<%=id_chara%>' onmouseenter="mostraCats(<%=id_chara%>)" onmouseleave="escondeCats(<%=id_chara%>)">
+                    <a href="chara.jsp?charaId=<%=id_chara%>"><img src="<%=img_link_chara%>">
+                    <div class="nome_chara"><%=nome_chara%></div></a>
                     <ul class="moverCategoria" id="mc_<%=id_chara%>" onmouseleave="escondeCats(<%=id_chara%>)">
                     <%
                         for (Categoria c2 : cats){
@@ -210,9 +210,10 @@
                     img_link_chara = rs3.getString("img_link_chara");
             %>
             
-                <div class="chara" id='c_<%=id_chara%>' onclick="mostraCats(<%=id_chara%>)" onmouseleave="escondeCats(<%=id_chara%>)">
-                    <img src="<%=img_link_chara%>">
-                    <div class="nome_chara"><%=nome_chara%></div>
+                
+                <div class="chara" id='c_<%=id_chara%>' onmouseenter="mostraCats(<%=id_chara%>)" onmouseleave="escondeCats(<%=id_chara%>)">
+                    <a href="chara.jsp?charaId=<%=id_chara%>"><img src="<%=img_link_chara%>">
+                    <div class="nome_chara"><%=nome_chara%></div></a>
                     <ul class="moverCategoria" id="mc_<%=id_chara%>" onmouseleave="escondeCats(<%=id_chara%>)">
                         <a href="listarchara.jsp?ct=<%=id_categoria %>&ch=<%=id_chara%>&acao=dl">
                             <li>Sem categoria</li></a>
@@ -256,7 +257,7 @@
                             <input type="text" required maxlength="20" name="nomeCat" id="nomeCat">
                         </div>
                         <div class="blockInput">
-                            <label for="descCat">Descrição:</label>
+                            <label for="descCat">DescriÃ§Ã£o:</label>
                             <textarea name="descCat" id="descCat"></textarea>
                         </div>
                         <input type="hidden" name="idUsuario" value="<%=id_s%>">
