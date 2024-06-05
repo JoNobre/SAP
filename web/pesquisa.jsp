@@ -30,19 +30,21 @@
             String email_s = (String) session.getAttribute("email");
             String nome_s = (String) session.getAttribute("nome");
             int cargo_s = (Integer) session.getAttribute("cargo");
-            
+
             Connection conn = CriarConexao.getConexao();
-            
-            int id_usuario = 0;
+
+            int id = 0;
             String nome = "";
             String img = "img/chara_padrao.jpg";
-            
+            String location = "";
+
             String n = request.getParameter("n");
             String q = request.getParameter("q");
             if (n != null && n != "") {
                 String quem = "";
                 if ("us".equals(q)) {
                     quem = "usuario";
+
                 } else {
                     quem = "chara";
                 }
@@ -51,22 +53,27 @@
                         + "like '%" + n + "%'");
                 while (rs.next()) {
                     nome = rs.getString("nome_" + quem);
+                    id = rs.getInt("id_" + quem);
                     if ("ch".equals(q)) {
                         img = rs.getString("img_link_chara");
+                        location = "chara.jsp?charaId="+id;
                     }
+                    else{location = "usuario.jsp?usuarioId="+id;}
         %>
 
-        <div class="entry">
-            <img src="<%=img%>" alt=""/>
-            <%=nome%>
-        </div>
+        <a href="<%=location%>">
+            <div class="entry">
+                <img src="<%=img%>" alt=""/>
+                <%=nome%>
+            </div>
+        </a>
 
         <%
                 }
                 rs.close();
                 stmt.close();
             }
-            
+
             conn.close();
 
         %>

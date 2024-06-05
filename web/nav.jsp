@@ -11,7 +11,7 @@
         <li><a href="listarchara.jsp">Personagens</a></li>
         <li><a href="pesquisa.jsp">Pesquisar</a></li>
         <li></li>
-        <li><a>Perfil</a><a href="notificacoes.jsp">
+        <li><!-- <a>Perfil</a> --><a href="notificacoes.jsp">
                 <%
                     if (notifs > 0){
                 %>

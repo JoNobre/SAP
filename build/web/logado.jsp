@@ -20,21 +20,24 @@
         <%
             String email_s = (String) session.getAttribute("email");
             String nome_s = (String) session.getAttribute("nome");
-            int cargo_s = (Integer) session.getAttribute("cargo");            
+            int cargo_s = (Integer) session.getAttribute("cargo");
         %>
-        
+
         <div id="nav">
-        <script>
-            $(function(){
-              $("#nav").load("nav.jsp");
-            });
-        </script>
+            <script>
+                <%
+                    if (cargo_s == 3) {
+                %>
+                window.location.href = "listarchara.jsp"
+                <%
+                } else {
+                %>
+                window.location.href = "adminArea.jsp"
+                <%
+                    }
+                %>
+            </script>
         </div>
-        <div id="body2"> 
-            <div id="container">
-                <a href="gerenciarusuario.jsp"><div id="m_usuario" class="box">Manter Usuários</div></a>
-                <a href="gerenciarchara.jsp"><div id="m_personagem" class="box">Manter Personagens</div></a>
-            </div>
-        </div>
+
     </body>
 </html>

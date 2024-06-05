@@ -24,105 +24,7 @@
             String nome_s = (String) session.getAttribute("nome");
             int cargo_s = (Integer) session.getAttribute("cargo");
         %>
-        <script>
-            $(function () {
-                $("#nav").load("nav.jsp");
-            });
-
-            let chara_obj = {p_img: "", p_id_c: -1, p_id_u: -1, p_nome_c: "", p_nome_u: "", descricao_chara: ""};
-
-            function enviaPainel(id_chara, id_usuario_fk, nome_usuario_c,
-                    nome_chara, descricao_chara, img_link_chara) {
-                chara_obj = {p_img: img_link_chara, p_id_c: id_chara,
-                    p_id_u: id_usuario_fk, p_nome_c: nome_chara,
-                    p_nome_u: nome_usuario_c, descricao_chara: descricao_chara};
-
-                p_img = document.getElementById("p_img");
-                p_id_c = document.getElementById("p_id_c");
-                p_id_u = document.getElementById("p_id_u");
-                p_nome_c = document.getElementById("p_nome_c");
-                p_nome_u = document.getElementById("p_nome_u");
-                c_img = document.getElementById("modalImgU");
-                c_desc = document.getElementById("charaDescU");
-                excluirId = document.getElementById("aBtExcluir");
-                visuId = document.getElementById("aBtVisu");
-                v_img = document.getElementById("modalImgV");
-                v_img_link = document.getElementById("charaLinkV");
-                v_nome_c = document.getElementById("charaNomeV");
-                v_nome_u = document.getElementById("charaNomeVus");
-                v_id_c = document.getElementById("charaIdV");
-                v_id_u = document.getElementById("charaIdVus");
-                v_id_desc = document.getElementById("charaDescV");
-
-                p_img.src = chara_obj.p_img;
-                p_id_c.innerHTML = chara_obj.p_id_c;
-                p_id_u.innerHTML = chara_obj.p_id_u;
-                p_nome_c.innerHTML = chara_obj.p_nome_c;
-                p_nome_u.innerHTML = chara_obj.p_nome_u;
-
-                charaLinkU.value = chara_obj.p_img;
-                charaIdU.value = chara_obj.p_id_u;
-                idChara.value = chara_obj.p_id_c;
-                charaNomeU.value = chara_obj.p_nome_c;
-                c_desc.innerHTML = chara_obj.descricao_chara;
-                modalImgU.src = chara_obj.p_img;
-                modalImgU.style.display = "block";
-                
-                v_img.src = chara_obj.p_img;
-                v_img_link.innerHTML = chara_obj.p_img;
-                v_nome_c.innerHTML = chara_obj.p_nome_c;
-                v_nome_u.innerHTML = chara_obj.p_nome_u;
-                v_id_c.innerHTML = chara_obj.p_id_c;
-                v_id_u.innerHTML = chara_obj.p_id_u;
-                v_id_desc.innerHTML = chara_obj.descricao_chara;
-                v_img.style.display = "block";
-
-                excluirId.href = "gerenciarchara.jsp?excluirId=" + chara_obj.p_id_c;
-                visuId.href = "chara.jsp?charaId=" + chara_obj.p_id_c;
-                
-                document.getElementById("sb1").disabled = false;
-                document.getElementById("sb2").disabled = false;
-                document.getElementById("sb3").disabled = false;
-
-            }
-
-            function carregaImagem() {
-                if (charaLink.value != "" && charaLink.value != undefined) {
-                    modalImg.src = charaLink.value;
-                    modalImg.style.display = "block";
-                } else
-                    modalImg.style.display = "none";
-            }
-            function carregaImagemU() {
-                if (charaLinkU.value != "" && charaLinkU.value != undefined) {
-                    modalImgU.src = charaLinkU.value;
-                    modalImgU.style.display = "block";
-                } else
-                    modalImgU.style.display = "none";
-            }
-            function carregaJson() {
-                let files = document.getElementById('seleciona').files;
-                console.log(files);
-                if (files.length <= 0) {
-                    return false;
-                }
-
-                let fr = new FileReader();
-
-                fr.onload = function (e) {
-                    console.log(e);
-                    let result = JSON.parse(e.target.result);                                        
-                    charaLink.value = result.img_link_chara;
-                    charaNome.value = result.nome_chara;
-                    document.getElementById('charaDesc').value = result.descricao_chara;
-                    carregaImagem();
-                }
-                
-                fr.readAsText(files.item(0));
-                
-                
-            };
-        </script>
+        
         <script src="js/modal.js" type="text/javascript"></script>
         
         <div id="nav"></div>
@@ -351,4 +253,103 @@
             </div>
         </div>  
     </body>
+    <script>
+            $(function () {
+                $("#nav").load("nav.jsp");
+            });
+
+            let chara_obj = {p_img: "", p_id_c: -1, p_id_u: -1, p_nome_c: "", p_nome_u: "", descricao_chara: ""};
+
+            function enviaPainel(id_chara, id_usuario_fk, nome_usuario_c,
+                    nome_chara, descricao_chara, img_link_chara) {
+                chara_obj = {p_img: img_link_chara, p_id_c: id_chara,
+                    p_id_u: id_usuario_fk, p_nome_c: nome_chara,
+                    p_nome_u: nome_usuario_c, descricao_chara: descricao_chara};
+
+                p_img = document.getElementById("p_img");
+                p_id_c = document.getElementById("p_id_c");
+                p_id_u = document.getElementById("p_id_u");
+                p_nome_c = document.getElementById("p_nome_c");
+                p_nome_u = document.getElementById("p_nome_u");
+                c_img = document.getElementById("modalImgU");
+                c_desc = document.getElementById("charaDescU");
+                excluirId = document.getElementById("aBtExcluir");
+                visuId = document.getElementById("aBtVisu");
+                v_img = document.getElementById("modalImgV");
+                v_img_link = document.getElementById("charaLinkV");
+                v_nome_c = document.getElementById("charaNomeV");
+                v_nome_u = document.getElementById("charaNomeVus");
+                v_id_c = document.getElementById("charaIdV");
+                v_id_u = document.getElementById("charaIdVus");
+                v_id_desc = document.getElementById("charaDescV");
+
+                p_img.src = chara_obj.p_img;
+                p_id_c.innerHTML = chara_obj.p_id_c;
+                p_id_u.innerHTML = chara_obj.p_id_u;
+                p_nome_c.innerHTML = chara_obj.p_nome_c;
+                p_nome_u.innerHTML = chara_obj.p_nome_u;
+
+                charaLinkU.value = chara_obj.p_img;
+                charaIdU.value = chara_obj.p_id_u;
+                idChara.value = chara_obj.p_id_c;
+                charaNomeU.value = chara_obj.p_nome_c;
+                c_desc.innerHTML = chara_obj.descricao_chara;
+                modalImgU.src = chara_obj.p_img;
+                modalImgU.style.display = "block";
+                
+                v_img.src = chara_obj.p_img;
+                v_img_link.innerHTML = chara_obj.p_img;
+                v_nome_c.innerHTML = chara_obj.p_nome_c;
+                v_nome_u.innerHTML = chara_obj.p_nome_u;
+                v_id_c.innerHTML = chara_obj.p_id_c;
+                v_id_u.innerHTML = chara_obj.p_id_u;
+                v_id_desc.innerHTML = chara_obj.descricao_chara;
+                v_img.style.display = "block";
+
+                excluirId.href = "gerenciarchara.jsp?excluirId=" + chara_obj.p_id_c;
+                visuId.href = "chara.jsp?charaId=" + chara_obj.p_id_c;
+                
+                document.getElementById("sb1").disabled = false;
+                document.getElementById("sb2").disabled = false;
+                document.getElementById("sb3").disabled = false;
+
+            }
+
+            function carregaImagem() {
+                if (charaLink.value != "" && charaLink.value != undefined) {
+                    modalImg.src = charaLink.value;
+                    modalImg.style.display = "block";
+                } else
+                    modalImg.style.display = "none";
+            }
+            function carregaImagemU() {
+                if (charaLinkU.value != "" && charaLinkU.value != undefined) {
+                    modalImgU.src = charaLinkU.value;
+                    modalImgU.style.display = "block";
+                } else
+                    modalImgU.style.display = "none";
+            }
+            function carregaJson() {
+                let files = document.getElementById('seleciona').files;
+                console.log(files);
+                if (files.length <= 0) {
+                    return false;
+                }
+
+                let fr = new FileReader();
+
+                fr.onload = function (e) {
+                    console.log(e);
+                    let result = JSON.parse(e.target.result);                                        
+                    charaLink.value = result.img_link_chara;
+                    charaNome.value = result.nome_chara;
+                    document.getElementById('charaDesc').value = result.descricao_chara;
+                    carregaImagem();
+                }
+                
+                fr.readAsText(files.item(0));
+                
+                
+            };
+        </script>
 </html>

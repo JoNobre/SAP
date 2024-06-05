@@ -78,6 +78,7 @@ public class LoginControllers extends HttpServlet{
                 session.setAttribute("email",email);
                 session.setAttribute("nome",nomeBuscado);
                 session.setAttribute("cargo",cargoBuscado);
+                session.setAttribute("chegueiDoServlet","true");
                 
                 try{
                     con = CriarConexao.getConexao();

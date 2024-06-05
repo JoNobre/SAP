@@ -77,11 +77,25 @@
                     <div class="charaFormNome">
                         <label for="charaNome">Nome: </label><span name="charaNomeV" id="charaNomeV" ><%=nome_chara%></span>
                     </div>
+                    <%
+                        if (cargo_s != 3){
+                    %>
+                    <div class="charaFormId">
+                        <label for="charaId">Id: </label><span name="charaNomeV" id="charaIdV" ><%=id_chara%></span>
+                    </div>
+                    <%}%>
                 </div>
                 <div class="charaFormIdNome">
                     <div class="charaFormNome">
                         <label for="charaNome">Dono: </label><span name="charaNomeVus" id="charaNomeVus" ><%=nome_usuario_c%></span>
                     </div>
+                    <%
+                        if (cargo_s != 3){
+                    %>
+                    <div class="charaFormId">
+                        <label for="charaId">Usuario Id: </label><span name="charaIdVus" id="charaIdVus"><%=id_usuario_fk%></span>
+                    </div>
+                    <%}%>
                 </div>
                 <div class="charaFormDesc">
                     Descrição:
@@ -97,8 +111,8 @@
                 <%}%>
 
                 <div class="sp_botoes">
-                    <a id="jsonDownload" href="e" download="personagem.json" onload="baixa()"><button>Exportar Personagem</button></a>
-                    <a id="clonar" href="inserirchara.jsp?n=<%=nome_chara%>&d=<%=descricao_chara%>&l=<%=img_link_chara%>"><button>Clonar Personagem</button></a>
+                    <a id="jsonDownload" href="e" download="personagem.json"><button>Exportar Personagem</button></a>
+                    <a id="clonar"><button>Clonar Personagem</button></a>
                 </div>
             </div>
         </div>
@@ -177,7 +191,12 @@
                 let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonChara);
                 document.getElementById("jsonDownload").href = dataStr;
             };
-
+            
+            document.getElementById("clonar").addEventListener("click",redirectClone)
+            function redirectClone(){
+                window.location.href = `inserirchara.jsp?n=<%=nome_chara%>&d=<%=descricao_chara%>&l=<%=img_link_chara%>`
+            }
+            
             let comen = document.getElementsByClassName("comentario");
             /*
              let ed = this.querySelector(".cm_ed");
@@ -194,6 +213,7 @@
                     }, false);
                 }
             }
+            
 
         </script>
     </body>

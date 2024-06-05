@@ -42,12 +42,12 @@
                     <div class="charaFormIdNome">
                         <div class="charaFormNome">
                             <label for="charaNome">Nome: </label><input type="text" name="charaNome" id="charaNome" maxlength="25" >
-                            <input type="hidden" name="charaId" id="charaId" value="<%=id_usuario%>">
+                            <input required type="hidden" name="charaId" id="charaId" value="<%=id_usuario%>">
                         </div>                 
                     </div>
                     <div class="charaFormDesc">
                         Descrição:
-                        <textarea name="charaDesc" id="charaDesc"><%=request.getParameter("d")%></textarea>
+                        <textarea name="charaDesc" id="charaDesc"></textarea>
                     </div>
                     <div class="charaFormLink">
                         <label for="charaLink">Link: </label><input type="text" 
@@ -111,11 +111,18 @@
 
 
             }
+            <%
+                if (request.getParameter("n") != null){
+            %>
             window.onload = () => {
                 charaNome.value = "<%=request.getParameter("n")%>";
                 charaLink.value = "<%=request.getParameter("l")%>";
+                document.getElementById("charaDesc").innerHTML = "<%=request.getParameter("d")%>"
                 carregaImagem();
             }
+            <%
+                }
+            %>
 
         </script>
     </body>
