@@ -47,6 +47,9 @@ h3:hover + .hoverDesc{
     z-index: 2;
     box-shadow: 2px 2px 10px var(--cor-sombra);
 }
+h3:hover + .hoverDesc:empty{
+    display: none!important;
+}
 .hoverDesc::before{
     content: "";
     display: block;

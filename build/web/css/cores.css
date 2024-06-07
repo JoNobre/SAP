@@ -6,6 +6,7 @@
     --cor-fundo-frente-destaque: #4a5048;
     --cor-fundo-frente-destaque2: #585858;
     --cor-fundo-frente-destaque3: #697069;
+    --cor-fundo-frente-destaque4: #8b8f8b;
     --cor-sombra:#1e201e;
     --cor-destaque: #7ec56b;
     --cor-destaque2: #c7e9bd;
@@ -24,4 +25,7 @@
     --cor-botao-visualizar-claro: #6fc8e4;
     --cor-botao-remover: #d66060;
     --cor-botao-remover-claro: #e7869f;
+    --cor-botao-laranja: #e2b75a;
+    --cor-botao-laranja-claro: #eec288;
+    --cor-botao-laranja-texto: #3a2828;
 }

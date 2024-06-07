@@ -58,3 +58,27 @@
     width: 100%;
     text-align: center;
 }
+.modalConteudo input:not([type="checkbox"]),
+textarea,
+.charaForm span,select {
+    border: none;
+    background-color: var(--cor-fundo);
+    border-radius: 1vw;
+    padding: 0.8vw;
+    height: fit-content;
+    width: 100%;
+}
+
+.modalConteudo input:hover,
+.modalConteudo input:focus-visible,
+.modalConteudo textarea:hover,
+.modalConteudo textarea:focus-visible,
+.modalConteudo select:hover,
+.modalConteudo select:focus-visible {
+    outline: none;
+    background-color: var(--cor-fundo-frente-destaque2);
+}
+ textarea {
+    width: 100%;
+    resize: none;
+}
