@@ -67,18 +67,41 @@
                 stmt_dl.close();
 
             }
+            if ("dlus".equals(acao)) {
+                String sql = "delete from chara where id_chara = ?";
+                PreparedStatement stmt_dl = conn.prepareStatement(sql);
+                stmt_dl.setInt(1, id_chara);
+                stmt_dl.execute();
+                stmt_dl.close();
         %>
-        <div class="modalConteudo">    
+        <script>
+            window.location.href = "listarchara.jsp";
+        </script>
+        <%
+            }
+        %>
+        <div class="modalConteudo">   
+            <div class="icones">
+                <img id="iconeEd" onclick="escondeForm()" src="img/ed.png" alt=""/>
+                <a  href="chara.jsp?charaId=<%=request.getParameter("charaId")%>&acao=dlus"><img src="img/ex.webp"></a>
+            </div>
+
             <div id="modalImgContainerV">
                 <img src="<%=img_link_chara%>" id="modalImgV" name="modalImgV" style="display: block">
             </div>
+            
             <div class="charaForm">
                 <div class="charaFormIdNome">
+                    <form id="charaFormUp" action="UpdateChara" method="post" style="width: 100%;height: 100%">
                     <div class="charaFormNome">
-                        <label for="charaNome">Nome: </label><span name="charaNomeV" id="charaNomeV" ><%=nome_chara%></span>
+                        <label for="charaNome">Nome: </label>
+                        <span name="charaNomeV" id="charaNomeV" class="desaparece"><%=nome_chara%></span>
+                        <input type="text" name="charaNomeU" id="charaNomeU" 
+                               maxlength="25" value="<%=nome_chara%>" 
+                               style="display: none" class="aparece">
                     </div>
                     <%
-                        if (cargo_s != 3){
+                        if (cargo_s != 3) {
                     %>
                     <div class="charaFormId">
                         <label for="charaId">Id: </label><span name="charaNomeV" id="charaIdV" ><%=id_chara%></span>
@@ -90,7 +113,7 @@
                         <label for="charaNome">Dono: </label><span name="charaNomeVus" id="charaNomeVus" ><%=nome_usuario_c%></span>
                     </div>
                     <%
-                        if (cargo_s != 3){
+                        if (cargo_s != 3) {
                     %>
                     <div class="charaFormId">
                         <label for="charaId">Usuario Id: </label><span name="charaIdVus" id="charaIdVus"><%=id_usuario_fk%></span>
@@ -99,22 +122,36 @@
                 </div>
                 <div class="charaFormDesc">
                     Descrição:
-                    <span name="charaDescV" id="charaDescV"><%=descricao_chara%></span>
+                    <span name="charaDescV" class="desaparece" id="charaDescV"><%=descricao_chara%></span>
+                    <textarea name="charaDescU" id="charaDescU" style="display: none"
+                              class="aparece"><%=descricao_chara%></textarea>
                 </div>
                 <% if ("img/chara_padrao.jpg".equals(img_link_chara)) {
                         img_link_chara = "";
                     } else {%>
                 <div class="charaFormLink">
                     Link:
-                    <span id="charaLinkV" name="charaLinkV"><%=img_link_chara%></span>
+                    <span class="desaparece" name="charaLinkV"><%=img_link_chara%></span>
                 </div>
                 <%}%>
-
-                <div class="sp_botoes">
+                <div class="charaFormLink aparece" style="display: none" id="charaLinkU">
+                    Link:
+                    <input type="text" 
+                            name="charaLinkU" 
+                           onblur="carregaImagemU()"
+                            value="<%=img_link_chara%>">
+                </div>
+                <input type="hidden" name="location" value="listarchara">
+                <input type="hidden" id="idChara" name="idChara" value="<%=id_chara%>">
+                <button class="aparece" style="display: none">Editar</button>
+                </form>
+                <div class="sp_botoes desaparece" >
                     <a id="jsonDownload" href="e" download="personagem.json"><button>Exportar Personagem</button></a>
                     <a id="clonar"><button>Clonar Personagem</button></a>
                 </div>
+                
             </div>
+            
         </div>
         <div class="secaoComentarios">
             <div id="comentar">
@@ -187,16 +224,32 @@
         %>
         <script>
             window.onload = () => {
-                let jsonChara = `"nome_chara": "<%=nome_chara%>", "descricao_chara": "<%=descricao_chara%>", "img_link_chara": "<%=img_link_chara%>"aaaaaaaaaaaaaa`;
+                let jsonChara = `{"nome_chara": "<%=nome_chara%>", "descricao_chara": "<%=descricao_chara%>", "img_link_chara": "<%=img_link_chara%>"}`;
                 let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(jsonChara);
                 document.getElementById("jsonDownload").href = dataStr;
             };
-            
-            document.getElementById("clonar").addEventListener("click",redirectClone)
-            function redirectClone(){
+
+            document.getElementById("clonar").addEventListener("click", redirectClone)
+            function redirectClone() {
                 window.location.href = `inserirchara.jsp?n=<%=nome_chara%>&d=<%=descricao_chara%>&l=<%=img_link_chara%>`
             }
+            function escondeForm(){
+                let aparece = document.getElementsByClassName("aparece");
+                let desaparece = document.getElementsByClassName("desaparece");
+  
+                for (let i = 0; i < aparece.length; i++){
+                    if(aparece[i].style.display == "none"){
+                        aparece[i].style.display = "block"
+                    }else {aparece[i].style.display = "none"}
+                }
+                for (let i = 0; i < desaparece.length; i++){
+                    if(desaparece[i].style.display == "none"){
+                        desaparece[i].style.display = "flex"
+                    }else {desaparece[i].style.display = "none"}
+                }
+            }
             
+
             let comen = document.getElementsByClassName("comentario");
             /*
              let ed = this.querySelector(".cm_ed");
@@ -214,6 +267,13 @@
                 }
             }
             
+            function carregaImagemU() {
+                if (charaLinkU.value != "" && charaLinkU.value != undefined) {
+                    modalImgU.src = charaLinkU.value;
+                    modalImgU.style.display = "block";
+                } else
+                    modalImgU.style.display = "none";
+            }
 
         </script>
     </body>

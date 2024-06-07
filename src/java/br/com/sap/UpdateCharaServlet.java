@@ -31,7 +31,6 @@ public class UpdateCharaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int id = Integer.valueOf(request.getParameter("idChara"));
-        int id_usuario = Integer.valueOf(request.getParameter("charaIdU"));
         String nome = request.getParameter("charaNomeU");
         String descricao = request.getParameter("charaDescU");
         String img_link = request.getParameter("charaLinkU");
@@ -45,7 +44,6 @@ public class UpdateCharaServlet extends HttpServlet {
             con = CriarConexao.getConexao();
 
             Chara c = new Chara();
-            c.setId_usuario(Integer.valueOf(id_usuario));
             c.setId(Integer.valueOf(id));
             c.setNome(nome);
             c.setDescricao(descricao);

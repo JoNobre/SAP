@@ -36,17 +36,16 @@ public class CharaDAO {
         }
     }
     public void atualizar (Chara c) throws SQLException{
-        String sql = "update chara set id_usuario_fk = ? , nome_chara = ? ,"
+        String sql = "update chara set nome_chara = ? ,"
                 + " descricao_chara = ?, img_link_chara = ? where id_chara = ?";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             
-            stmt.setInt(1, c.getId_usuario());
-            stmt.setString(2, c.getNome());
-            stmt.setString(3, c.getDescricao());
-            stmt.setString(4, c.getImg_link());
-            stmt.setInt(5, c.getId());
+            stmt.setString(1, c.getNome());
+            stmt.setString(2, c.getDescricao());
+            stmt.setString(3, c.getImg_link());
+            stmt.setInt(4, c.getId());
             
             stmt.execute();
             
