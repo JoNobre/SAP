@@ -1,0 +1,45 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(235, 228, 240);
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
+button{
+    height: fit-content;
+    padding: 0.5rem;
+    color: var(--cor-fundo-frente5);
+    background-color: var(--cor-botao-adicionar);
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5em;
+}
+button:hover{
+    background-color: var(--cor-botao-adicionar-claro);
+}
+.VisuContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.VisuConteudo{
+    background-color: var(--cor-fundo-frente);
+    margin-top: 30px;
+    border-radius: 15px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+.VisuConteudo label{
+    font-weight: 600;
+    color: var(--cor-destaque);
+}
+.VisuRow{
+    display: flex;
+    gap: 15px;
+}

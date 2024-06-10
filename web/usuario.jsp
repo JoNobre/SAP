@@ -16,7 +16,7 @@
         <title>JSP Page</title>
         <link href="css/cores.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="css/nav.css">
-        <link rel="stylesheet" type="text/css" href="css/style3.css">
+        <link rel="stylesheet" type="text/css" href="css/usuario.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
@@ -70,14 +70,14 @@
 
         %>
         <div class="VisuContainer">
-            <div clas="VisuConteudo">
+            <div class="VisuConteudo">
                 <div class="VisuRow">
-                    <label>Nome: </label><span class="VisuLongText"><%=nome_usuario%></span>
+                    <span class="item"><label>Nome: </label><span class="VisuLongText"><%=nome_usuario%></span></span>
                     <%
                         if (cargo_s != 3) {
                     %>
 
-                    <label>Id: </label><span class="VisuShortText" ><%=nome_usuario%></span>
+                    <span class="item"><label>Id: </label><span class="VisuShortText" ><%=id_usuario%></span></span>
 
                     <%}%>
                 </div>
@@ -86,11 +86,11 @@
                 %>
 
                 <div class="VisuRow">
-                    <label>Email: </label><span class="VisuLongText"><%=email_usuario%></span>
+                    <span class="item"><label>Email: </label><span class="VisuLongText"><%=email_usuario%></span></span>
                 </div>
                 <div class="VisuRow">
-                    <label>Status: </label><span class="VisuLongText"><%=str_ativado_usuario%></span>
-                    <label>Cargo: </label><span class="VisuLongText"><%=str_cargo_usuario%></span>
+                    <span class="item"><label>Status: </label><span class="VisuLongText"><%=str_ativado_usuario%></span></span>
+                    <span class="item"><label>Cargo: </label><span class="VisuLongText"><%=str_cargo_usuario%></span></span>
                 </div>
 
                 <%}%>
