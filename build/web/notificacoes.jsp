@@ -63,8 +63,8 @@
         %>
 
         <div class="notif">
-            <span><%=mensagem_notificacao%></span>
-            <span><%=data_hora_notificacao%></span>
+            <span class="texto_n"><%=mensagem_notificacao%></span>
+            <span class="data_n"><%=data_hora_notificacao%></span>
             <span class="deleta_n"><a href="notificacoes.jsp?acao=dl&ex=<%=id_notificacao%>">&times;</a></span>
         </div>
 

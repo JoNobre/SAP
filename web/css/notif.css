@@ -7,3 +7,42 @@
 body {
     background-color: var(--cor-fundo);
 }
+.notif-list{
+    margin: auto;
+    margin-top: 5vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.notif{
+    background-color: var(--cor-destaque);
+    padding: 10px;
+    color: var(--cor-fundo-frente5);
+    font-weight: 500;
+    min-height: 60px;
+    position: relative;
+}
+.notif a,.notif span{
+    color: var(--cor-fundo-frente5);
+}
+.data_n{
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    opacity: 0.5;
+}
+.deleta_n{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background-color: var(--cor-botao-remover);
+}
+.deleta_n a{
+    color: var(--cor-texto);
+    text-decoration: none;
+    padding: 3px;
+}
+.deleta_n a:hover{
+    background-color: var(--cor-botao-remover-claro);
+}

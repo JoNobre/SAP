@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="css/nav.css">
         <link rel="stylesheet" type="text/css" href="css/style3.css">
         <link rel="stylesheet" type="text/css" href="css/modal.css">
+        <link href="css/comentarios.css" rel="stylesheet" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
@@ -81,11 +82,18 @@
             }
         %>
         <div class="modalConteudo">   
+            <%
+                if ((id_s == id_usuario_fk) || (cargo_s != 3)){
+            %>
+            
             <div class="icones">
                 <img id="iconeEd" onclick="escondeForm()" src="img/ed.png" alt=""/>
                 <a  href="chara.jsp?charaId=<%=request.getParameter("charaId")%>&acao=dlus"><img src="img/ex.webp"></a>
             </div>
-
+            <%
+                }
+            %>
+            
             <div id="modalImgContainerV">
                 <img src="<%=img_link_chara%>" id="modalImgV" name="modalImgV" style="display: block">
             </div>
@@ -154,9 +162,10 @@
             
         </div>
         <div class="secaoComentarios">
+            <h2>Comentários</h2>
             <div id="comentar">
                 <form action="CadastroComentarioServlet" method="post">
-                    <textarea name="mensagem_comentario" ></textarea>
+                    <textarea name="mensagem_comentario" maxlength="300" required></textarea>
                     <input type="hidden" name="id_usuario_fk" value="<%=id_s%>">
                     <input type="hidden" name="id_chara_fk" value="<%=request.getParameter("charaId")%>">
                     <input type="hidden" name="nome_chara_fk" value="<%=nome_chara%>">
@@ -189,8 +198,9 @@
             <div class="comentario" >
                 <span class="cm_nome"><%=nome_usuario%></span>
                 <span class="cm_texto" id="cm_id_<%=id_comentario%>"><%=mensagem_comentario%></span>
+                <span class="cm_data"><%=data_hora_comentario%></span>
                 <%
-                    if (editado_comentario == true) {
+                    if (editado_comentario) {
                 %>
                 <span class="cm_editado">(editado)</span>
                 <%
@@ -199,7 +209,7 @@
                 %>
                 <form action="UpdateComentarioServlet" method="post" 
                       class="up_form" style="display: none">
-                    <textarea name="mensagem_comentario" ><%=mensagem_comentario%></textarea>
+                    <textarea name="mensagem_comentario" maxlength="300" required><%=mensagem_comentario%></textarea>
                     <input type="hidden" name="id_comentario" value="<%=id_comentario%>">
                     <input type="hidden" name="nome_chara_fk" value="<%=nome_chara%>">
                     <input type="hidden" name="donoDoChara" value="<%=id_usuario_fk%>">
@@ -215,13 +225,14 @@
                     %>
             </div>
 
-        </div>
+        
         <%
             }
             rs.close();
             stmt.close();
             conn.close();
         %>
+        </div>
         <script>
             window.onload = () => {
                 let jsonChara = `{"nome_chara": "<%=nome_chara%>", "descricao_chara": "<%=descricao_chara%>", "img_link_chara": "<%=img_link_chara%>"}`;

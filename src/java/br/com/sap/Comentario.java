@@ -16,6 +16,7 @@ public class Comentario {
     private int id_chara_fk;
     private String mensagem_comentario;
     private Timestamp data_hora_comentario;
+    private boolean editado_comentario;
 
     public int getId_comentario() {
         return id_comentario;
@@ -56,5 +57,14 @@ public class Comentario {
     public void setData_hora_comentario(Timestamp data_hora_comentario) {
         this.data_hora_comentario = data_hora_comentario;
     }
+
+    public boolean isEditado_comentario() {
+        return editado_comentario;
+    }
+
+    public void setEditado_comentario(boolean editado_comentario) {
+        this.editado_comentario = editado_comentario;
+    }
+    
     
 }

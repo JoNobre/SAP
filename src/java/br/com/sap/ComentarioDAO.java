@@ -38,14 +38,15 @@ public class ComentarioDAO {
         }
     }
     public void atualizar (Comentario c) throws SQLException{
-        String sql = "update comentario set mensagem_comentario = ? "
-                + "where id_comentario = ?";
+        String sql = "update comentario set mensagem_comentario = ? ,"
+                + "editado_comentario = ? where id_comentario = ?";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             
             stmt.setString(1, c.getMensagem_comentario());
-            stmt.setInt(2, c.getId_comentario());
+            stmt.setBoolean(2, true);
+            stmt.setInt(3, c.getId_comentario());
             
             stmt.execute();
             stmt.close();

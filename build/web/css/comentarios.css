@@ -1,0 +1,81 @@
+.secaoComentarios{
+    margin: 8vh auto;
+    width: 80vw;
+    border-radius: 0.7vw;
+}
+
+.secaoComentarios input:hover,
+.secaoComentarios input:focus-visible,
+.secaoComentarios textarea:hover,
+.secaoComentarios textarea:focus-visible,
+.secaoComentarios select:hover,
+.secaoComentarios select:focus-visible {
+    outline: none;
+    background-color: var(--cor-fundo-frente-destaque3);
+}
+.secaoComentarios textarea {
+    width: 100%;
+    resize: none;
+    background-color: var(--cor-fundo-frente-destaque2);
+    border-radius: 1vw 1vw 0 0;
+    font-size: 1.1em;
+    height: 100px;
+    
+}
+#comentar button,
+.up_form button{
+    width: 100%;
+    color: var(--cor-fundo);
+    font-weight: 700;
+    font-size: 1.2em;
+    border-radius: 0 0 1vw 1vw;
+    background-color: var(--cor-fundo-frente-destaque5);
+}
+#comentar button:hover,
+.up_form button:hover{
+    background-color: var(--cor-fundo-frente-destaque4);
+}
+.comentario{
+    background-color: var(--cor-fundo-frente-destaque6);
+    margin-top: 20px;
+    padding: 35px 15px 35px 15px;
+    color:  var(--cor-fundo);
+    position: relative;
+    word-break: break-all;
+    border-radius: 5px;
+}
+.comentario span{
+    color:  var(--cor-fundo);
+    font-weight: 500;
+}
+.comentario .cm_nome{
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    font-weight: 600;
+}
+.cm_edex{
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+.cm_editado{
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    opacity: 0.5;
+}
+.cm_data{
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    opacity: 0.5;
+}
+.cm_edex a{
+    color: var(--cor-fundo-frente3);
+    font-weight: 600;
+    cursor: pointer;
+}
+.cm_edex a:hover{
+    color: var(--cor-fundo-frente2);
+}

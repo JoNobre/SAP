@@ -83,12 +83,19 @@
         <script src="js/modal.js" type="text/javascript"></script>
         <div id="nav"></div>
         <div class="corpo">
+            
+            <%
+                if (us_id == id_s){
+            %>
+            
             <div class="botoes">
                 <button onclick="abreModal('modalCadastro')">Nova Categoria</button>
                 <a href="inserirchara.jsp"><button>Novo Personagem</button></a>
             </div>
             <hr>
+            
             <%
+                }
                 if (chara.charaSemCategoria(us_id)) {
             %>
             <div class="categoria">
@@ -273,7 +280,10 @@
             if (window.innerWidth - charas[i].getBoundingClientRect().right < 100) {
                 mc.classList.add("esquerda")
             }
-            mc.style.display = "flex"
+            if (mc.querySelector("a") !== null){
+                mc.style.display = "flex"
+            }
+            
         }
         function escondeCats(i) {
             let charas = document.getElementsByClassName("chara");
